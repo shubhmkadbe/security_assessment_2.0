@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+
+    <link rel="icon" href="../static/images/New Logo Hexatic_Short Form.png" type="image/png" width="100px" height="50px">
+
+    <title>Security Assessment</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="../static/css/index.css">
+</head>
+
+<body>
+    <div class="inline-package">
+        <img class="inline-image" src="../static/images/New Logo Hexatic_Short Form.png">
+        <h1 class="inline-heading">Security Assessment</h1>
+    </div>
+    <form id="surveyForm">
+
+
+
+        <div id="groupList">
+            {% for group_name, group_data in groups.items() %}
+            
+            
+            <div class="tile" onclick="toggleFlip('{{ group_name }}', event)">
+                <div class="flip-container" id="flip-{{ group_name }}">
+                    <!-- Front side -->
+                    <div class="front">
+                        <h2>{{ group_name }}</h2>
+                    </div>
+                    <!-- Back side -->
+                    <div class="back">
+                        <h2>{{ group_name }}</h2>
+                        {% for question in group_data.questions %}
+                        <div class="question-item">
+                            <p>
+                                {{ question['Security Controls'] }} <br>
+                                <label>
+                                    <input type="radio" name="{{ question['Security Controls'] }}" value="Yes" required> Yes
+                                </label>
+                                <label>
+                                    <input type="radio" name="{{ question['Security Controls'] }}" value="No"> No
+                                </label>
+                            </p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            
+            {% endfor %}
+        </div>  
+
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <button id="downloadBtn" style="display: none;" disabled>Download</button>
+    <div id="contentToCapture">
+    <canvas id="resultsChart" width="400" height="400"></canvas>
+    <div id="legendContainer" style="margin-left: 50px;"></div>
+   
+        <!--<canvas id="resultsChart" width="400" height="400"></canvas> -->
+       
+    </div>
+    
+
+    <script src="../static/script/main.js"></script>
+</body>
+
+</html>
