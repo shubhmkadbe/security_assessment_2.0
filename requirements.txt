@@ -4,13 +4,9 @@ certifi==2020.6.20
 chardet==4.0.0
 click==8.0.3
 colorama==0.4.4
-#command-not-found==0.3
 cryptography==3.4.8
-#cupshelpers==1.0
 dbus-python==1.2.18
-#defer==1.0.6
 distro==1.7.0
-#distro-info==1.1+ubuntu0.2
 duplicity==3.0.3
 fasteners==0.14.1
 future==0.18.2
@@ -19,7 +15,6 @@ idna==3.3
 importlib-metadata==4.6.4
 jeepney==0.7.1
 keyring==23.5.0
-#language-selector==0.1
 launchpadlib==1.10.16
 lazr.restfulclient==0.14.4
 lazr.uri==1.0.6
@@ -51,12 +46,11 @@ pymacaroons==0.13.0
 PyNaCl==1.5.0
 pyparsing==2.4.7
 pyRFC3339==1.1
-#python-apt==2.4.0+ubuntu4
 python-dateutil==2.8.1
 python-debian==0.1.49
-pytz==2022.1
+pytz>=2022.1  # Allow newer versions for compatibility
 pyxdg==0.27
-PyYAML==5.4.1
+PyYAML>=5.4.1  # Allow newer versions to avoid build issues
 reportlab==3.6.8
 requests==2.25.1
 scapy==2.6.0
